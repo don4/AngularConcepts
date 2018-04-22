@@ -1,0 +1,30 @@
+@charset "utf-8";
+/* CSS Document */
+body{
+	margin:0 auto;
+	padding:0;
+	max-width:992px;
+	width:100%;
+	
+}
+th{
+	cursor:pointer;
+	}
+.arrow-up, .arrow-down{
+	float:right;
+	display:inline-block;
+	width:0;
+	height:0;
+	border-left: 8px solid transparent;
+	border-right: 8px solid transparent;	
+	}
+.arrow-up{
+	border-bottom: 10px solid #000000;	
+	}
+.arrow-down{
+	border-top: 10px solid #000000;	
+	}
+
+div{
+	margin-bottom:10px;
+}

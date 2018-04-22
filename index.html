@@ -1,0 +1,86 @@
+<html>
+<head>
+<title>AngularJS First Application</title>
+<link rel="stylesheet" type="text/css" href="css/style.css">
+<script type="text/javascript" src="scripts/libs/angular.min.js"></script>
+<script type="text/javascript" src="scripts/custom.js"></script>     
+ </head>
+<body ng-app= "myModule">
+<h1>Sample Application</h1>
+<h3>Understanding Scope instances Ng-click</h3>
+{{counter}}
+<div id="Customer" ng-controller= "myController">
+Customer Name : <input ng-model="CustomerName" type="text" id="CustomerName"><br><br>
+Customer Code: <input ng-model="CustomerCode" type="text" id="CustomerCode"><br><br>
+<div id="divCustomerName">{{CustomerName}}</div><br><br>
+<div id="divCustomerCode">{{CustomerCode}}</div><br><br>
+<button type="submit" ng-click="Submit()"> Submit</button>
+</div>
+<br>
+<div id="Customer1" ng-controller="myController">
+Customer Name : <input ng-model="CustomerName" type="text" id="CustomerName1"><br><br>
+Customer Code: <input ng-model="CustomerCode" type="text" id="CustomerCode1"><br><br>
+{{CustomerName}}<br><br>
+{{CustomerCode}}<br>
+{{CustomerName + CustomerCode}}
+</div>
+<h3>Understanding sorting of data by filter </h3>
+<div class="Asc" ng-controller="Mycntrl">
+Order By : <select ng-model="sortColumn">
+<option value="name">Name ASC</option>
+<option value="dateofBirth">Date of Birth ASC</option>
+<option value="Gender">Gender ASC</option>
+<option value="-Salary">Salary DESC</option>
+
+</select>
+<br/>
+<br/>
+<table width="100%" cellpadding="10" border="1" cellspacing="0">
+<tbody>
+<tr>
+<th>
+Name
+</th>
+<th>
+Date of Birth
+</th>
+<th>Gender</th>
+<th>
+Salary
+</th>
+</tr>
+<tr ng-repeat="employee in employees | orderBy:sortColumn">
+<td>{{employee.name}}</td>
+<td>{{employee.dateofBirth | date:"dd/MM/yyyy"}}</td>
+<td>{{employee.Gender}}</td>
+<td>{{employee.Salary}}</td>
+
+</tr>
+</tbody>
+
+</table>
+ </div>
+<h3>Understanding sorting of data using filter by clicking header </h3>
+<div class="Asc" ng-controller="Mycntrl">
+
+<table width="100%" cellpadding="10" border="1" cellspacing="0">
+<tbody>
+<tr>
+<th ng-click="sortData('name')">Name <div ng-class="getSortClass('name')"></div></th>
+<th ng-click="sortData('dateofBirth')">Date of Birth <div ng-class="getSortClass('dateofBirth')"></div></th>
+<th ng-click="sortData('Gender')">Gender <div ng-class="getSortClass('Gender')"></div></th>
+<th ng-click="sortData('Salary')">Salary <div ng-class="getSortClass('Salary')"></div></th>
+</tr>
+<tr ng-repeat="employee in employees | orderBy:sortColumn:reverseSort">
+<td>{{employee.name}}</td>
+<td>{{employee.dateofBirth | date:"dd/MM/yyyy"}}</td>
+<td>{{employee.Gender}}</td>
+<td>{{employee.Salary}}</td>
+
+</tr>
+</tbody>
+
+</table>
+ </div>
+   </body>
+</html>

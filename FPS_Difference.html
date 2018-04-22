@@ -1,0 +1,46 @@
+<html>
+<head>
+<title>AngularJS First Application</title>
+<link rel="stylesheet" type="text/css" href="css/style.css">
+<script type="text/javascript" src="scripts/libs/angular.min.js"></script>
+<script type="text/javascript" src="scripts/script.js"></script>     
+ </head>
+<body ng-app= "myModule">
+<h1>Sample Application</h1>
+<h3>Understanding sorting of data using filter</h3>
+<div class="Asc" ng-controller="Mycntrl">
+
+<table width="100%" cellpadding="10" border="1" cellspacing="0">
+<tbody>
+<tr>
+<th>Name</th>
+<th>Date of Birth</th>
+<th>Gender</th>
+<th>Salary</th>
+</tr>
+<tr ng-repeat="employee in employees | orderBy:'name | endWithChar:a'">
+<td>{{employee.name | capitalize}}</td>
+<td>{{employee.dateofBirth | date:"dd/MM/yyyy"}}</td>
+<td>{{employee.Gender}}</td>
+<td>{{employee.Salary}}</td>
+
+</tr>
+</tbody>
+
+</table>
+<h3>Understanding difference among Provider vs Factory vs Service</h3>
+<!--Provider-->
+<div ng-controller="providerController1">providerController1 - see results in console</div>
+<div ng-controller="providerController2">providerController2- see results in console</div>
+<!--Factory-->
+<div ng-controller="factoryController1">factoryController1- see results in console</div>
+<div ng-controller="factoryController2">factoryController2- see results in console</div>
+<!--Service-->
+<div ng-controller="serviceController1">serviceController1- see results in console</div>
+<div ng-controller="serviceController2">serviceController2- see results in console</div>
+<!-- Change value at Config time-->
+<div ng-controller="setProviderController">setProviderController- see results in console</div>
+
+ </div>
+   </body>
+</html>
